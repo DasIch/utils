@@ -320,8 +320,34 @@ def parse_highlight(line):
     rv.update(groups(2, takewhile(lambda x: x is not None, parts[1:])))
     for key, value in rv.iteritems():
         if key in GUI_COLOR_KEYS:
-            rv[key] = Color.from_string(value)
+            try:
+                rv[key] = Color.from_string(value)
+            except ValueError:
+                if value == 'NONE':
+                    rv[key] = NullColor()
+                else:
+                    raise
     return rv
+
+
+class NullColor(object):
+    def to_string(self):
+        return 'NONE'
+
+    def to_int(self):
+        return 'NONE'
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__)
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def difference_to(self, color):
+        raise NotImplementedError()
+
+    def closest(self, colors):
+        raise NotImplementedError()
 
 
 class Color(object):
@@ -401,7 +427,10 @@ def convert_highlight(highlight):
     rv = {}
     for key, value in highlight.iteritems():
         if key in GUI_COLOR_KEYS and not highlight.get(COLOR_KEY_MAPPING[key]):
-            rv[COLOR_KEY_MAPPING[key]] = value.closest(allowed_colors)
+            try:
+                rv[COLOR_KEY_MAPPING[key]] = value.closest(allowed_colors)
+            except NotImplementedError:
+                pass
     highlight.update(rv)
 
 
