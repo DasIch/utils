@@ -2,7 +2,7 @@
 # coding: utf-8
 """
     vim-gui-to-term
-    ~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~
 
     This script converts trivial vim colorschemes designed to work in gvim to
     colorschemes that are not only usable in gvim but also in vim using the
