@@ -7,6 +7,5 @@ scripts here are licensed under the BSD license, which you can find in the
 LICENSE file.
 
 vim-gui-to-term.py
-
     This script converts very trivial gvim colorschemes to colorschemes
     usable with vim using 256 colors.
