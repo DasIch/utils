@@ -8,7 +8,7 @@
     colorschemes that are not only usable in gvim but also in vim using the
     closest colors that could be found.
 
-    The generated colorscheme uses 256 colors so make sure that 
+    The generated colorscheme uses 256 colors.
 
     Dependencies:
 
