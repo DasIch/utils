@@ -431,6 +431,8 @@ def convert_highlight(highlight):
                 rv[COLOR_KEY_MAPPING[key]] = value.closest(allowed_colors)
             except NotImplementedError:
                 pass
+    if 'gui' in highlight and 'term' not in highlight:
+        highlight['term'] = highlight['gui']
     highlight.update(rv)
 
 
