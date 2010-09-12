@@ -25,7 +25,6 @@ from itertools import izip_longest, takewhile
 from colormath.color_objects import RGBColor
 
 
-
 highlight_re = re.compile(
     ur'hi\s+([A-zA-Z]+)\s*' + '(?:([^\s=]+)=([^\s]+)\s*)?' * 3
 )
