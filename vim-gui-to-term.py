@@ -426,7 +426,7 @@ def highlight_to_string(highlight):
 def convert_highlight(highlight):
     rv = {}
     for key, value in highlight.iteritems():
-        if key in GUI_COLOR_KEYS and not highlight.get(COLOR_KEY_MAPPING[key]):
+        if key in GUI_COLOR_KEYS:
             try:
                 rv[COLOR_KEY_MAPPING[key]] = value.closest(allowed_colors)
             except NotImplementedError:
