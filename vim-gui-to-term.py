@@ -26,7 +26,7 @@ from colormath.color_objects import RGBColor
 
 
 highlight_re = re.compile(
-    ur'hi\s+([A-zA-Z]+)\s*' + '(?:([^\s=]+)=([^\s]+)\s*)?' * 3
+    ur'hi\s+([A-zA-Z0-9]+)\s*' + '(?:([^\s=]+)=([^\s]+)\s*)?' * 3
 )
 
 
